@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+</head>
+
+<style>
+    *{
+        /* 初始化 */
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        /* 使可爱鬼居中 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #000;
+    }
+    .ghost {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-250px, -450px) scale(0.4); /* Move and scale the ghost */
+        width: 160px;
+        height: 200px;
+        z-index: 2;
+    }
+
+    .body{
+        /* 制作身体 */
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-top-right-radius: 80px;
+        border-top-left-radius: 80px;
+        background-color: #fff;
+        animation: float 4s ease infinite;
+    }
+    @keyframes float {
+        0%,100%{
+            top: 0px;
+        }
+        40%{
+            top: -40px;
+        }
+    }
+    .face{
+        display: flex;
+        flex-wrap: wrap;
+        position: absolute;
+        top: 67px;
+        left: 40px;
+        width: 72px;
+        height: 41px;
+    }
+    .eye{
+        width: 20px;
+        height: 20px;
+        background-color: #000;
+        border-radius: 100%;
+    }
+    .eye.left{
+        margin-right: 32px;
+    }
+    .smile{
+        width: 32px;
+        height: 16px;
+        background-color: #000;
+        margin-top: 6px;
+        margin-left: 20px;
+        border-bottom-left-radius: 16px 12px;
+        border-bottom-right-radius: 16px 12px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    .rosy{
+        position: absolute;
+        top: 24px;
+        width: 18px;
+        height: 12px;
+        background-color: #ffd2dd;
+        border-radius: 100%;
+    }
+    .rosy.left{
+        left: -2px;
+        transform: rotate(-2deg);
+    }
+    .rosy.right{
+        right: -2px;
+        transform: rotate(2deg);
+    }
+    .arm{
+        position: absolute;
+        top: 120px;
+        width: 25px;
+        height: 40px;
+        background-color: #fff;
+    }
+    .arm.left{
+        left: -4px;
+        border-radius: 60% 100%;
+        animation: arms-left 4s ease infinite;
+    }
+    .arm.right{
+        right: -30px;
+        border-radius: 100% 60%;
+        animation: arms-right 4s ease infinite;
+    }
+    @keyframes arms-left {
+        0%,100%{
+            transform: translate(-50%,-50%) rotate(50deg);
+        }
+        40%{
+            transform: translate(-50%,-50%) rotate(40deg);
+        }
+    }
+    @keyframes arms-right {
+        0%,100%{
+            transform: translate(-50%,-50%) rotate(-50deg);
+        }
+        40%{
+            transform: translate(-50%,-50%) rotate(-40deg);
+        }
+    }
+    .bottom{
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0px;
+        right: -1px;
+    }
+    .bottom div{
+        flex-grow: 1;
+        position: relative;
+        top: -14px;
+        height: 28px;
+        border-radius: 100%;
+        background-color: #ffffff;
+    }
+    .bottom div:nth-child(2n){
+        top: -10.5px;
+        margin: 0 -2px;
+        background-color: transparent;
+        border-top: 10px solid #fff;
+    }
+    /* .shadow{
+        position: absolute;
+        bottom: -100px;
+        left: 50%;
+        width: 200px;
+        height: 12px;
+        border-radius: 100%;
+        background-color: gray;
+        animation: shadow 4s ease infinite;
+    } */
+    @keyframes shadow {
+        0%,100%{
+            transform: translateX(-50%) scale(1);
+        }
+        40%{
+            transform: translateX(-50%) scale(0.5);
+        }
+    }
+</style>
+
+<body>
+
+    <div class="ghost">
+        <!-- body part -->
+        <div class="body">
+            <div class="face">
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+                <div class="smile"></div>
+                <!-- blush -->
+                <div class="rosy left"></div>
+                <div class="rosy right"></div>
+            </div>
+            <!-- arm -->
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+            <!-- legs -->
+            <div class="bottom">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- shadow -->
+        <div class="shadow"></div>
+    </div>
+
+<div class="background-box" style="display: block;">
+    <div class = "welcome-msg" style="display: block;">
+        <h1 class="here"> Welcome to Flashchat!</h1>
+    </div>
+    <div class="main-box" style="display: block;">
+        <form class="main-form" action="/index.html" method="post">
+            <input class="txtb" type="text" name="" placeholder="Display Name">
+            <div class="buttons">
+                <button id="createRoomBtn">Create Room</button>
+                <button>Join Room</button>
+            </div>
+        </form>
+    </div>
+
+    <div class = "create-room-box" style = "display: none;">
+        <p class="code-label">Your Room Code is:</p>
+        <span id="generated-code">ABCD123</span>
+        <div class="chat-history-container">
+            <p class="chat-history">Retain Chat History</p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>  
+        <label for="max-people">Max number of people:</label>
+        <select id="max-people">
+            <option value="2">2</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+        </select>               
+        <div class="button-container">
+            <button class="create-room-button">Create Room</button>
+            <button class="back1-button"><span>&lt;</span> Back</button>
+        </div>
+    </div>
+
+    <div class = "join-room-box" style = "display: none;">
+        <input class="enter-code" type="text" name="" placeholder="Enter Room Code">
+        <div class="button-container">
+            <button class="join-room-button">Join Room</button>
+            <button class="back2-button"><span>&lt;</span> Back</button>
+        </div>
+    </div>
+    <style>
+        img {
+            position: absolute;
+            width: 1800px;
+            height: 400px;
+            margin-top: 450px;
+            z-index: -1;
+            opacity: 0.83;
+        }
+    </style>
+    <img src="waves.png" alt="waves graphic design">
+</div>
+
+<!-- Chat Page -->
+<div class="container" style="display: none;">
+<!-- User List-->
+<div class="user-list">
+    <div class="header">
+        <div class="my-avatar">
+            <img src="avatar2.png" alt=""/>
+        </div>
+        <div class="info">
+            <h3 class="username">Deetoo</h3>
+        </div>
+    </div>
+    <div class="title"><h3>User List</h3></div>
+    <ul>
+        <li class="user">
+            <div class="user1-avatar">
+                <img src="avatar.png" alt=""/>
+            </div>            
+            <div class="name1">Wrecker</div>
+        </li>
+        <li class="user">
+            <div class="user2-avatar">
+                <img src="avatar02.png" alt=""/>
+            </div>            
+            <div class="name2">Pryzos</div>
+        </li>
+    </ul>
+</div>
+<!-- Chat Box-->
+<div class="box">
+    <!--Chatbox head-->
+    <div class="box-hd"><h3> Chat Room(99)</h3></div>
+    <!--Chat Box body-->
+    <div class="box-bd">
+        <div class="system">
+            <p class="message_system">
+                <span class="content">Deetoo invited you and Wrecker into the group chat</span>
+            </p>
+        </div>
+        <div class="message-box">
+            <div class="my-message">
+                <div class="avatar">
+                    <img src="avatar2.png" alt=""/>
+                </div>  
+                <div class="content">
+                    <div class="bubble">
+                        <div class="bubble_cont">whats up</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="message-box">
+            <div class="other-message">
+                <div class="avatar">
+                    <img src="avatar.png" alt=""/>
+                </div>                  
+                <div class="content">
+                    <div class="nickname">pryzos</div>
+                    <div class="bubble">
+                        <div class="bubble_cont">not much</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Enter Message Area-->
+    <div class="content">
+        <textarea class="text" id="content" contenteditable></textarea>
+    </div>
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
+
+
+
+    <!-- <link rel = "stylesheet" href="css/index.css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" /> -->
+<!-- <body>
+    <div class ="login_box" style="display: block;">
+        <h3> User Login</h3>
+        <p> Username</p>
+        <input type="text" placeholder = "Please enter your username" id="username" />
+        <p>Choose icon</p>
+        <ul class="avatar" id="login_avatar">
+        </ul>
+        <button class="weui-btn" id="loginBtn">Login</button>
+    </div>
+    <div class ="container" style="display: none;">
+        User List
+        <div class = "user-list">
+            <div class = "header">
+                <div class = "avatar">
+                    <img class ="img src=images/avatar2.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>"
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html> -->
