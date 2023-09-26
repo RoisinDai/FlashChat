@@ -10,13 +10,11 @@
 </head>
 
 <style>
-    *{
-        /* 初始化 */
+    *{ 
         padding: 0;
         margin: 0;
     }
     body{
-        /* 使可爱鬼居中 */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -27,14 +25,13 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-250px, -450px) scale(0.4); /* Move and scale the ghost */
+        transform: translate(-250px, -450px) scale(0.4); 
         width: 160px;
         height: 200px;
         z-index: 2;
     }
 
     .body{
-        /* 制作身体 */
         position: relative;
         width: 100%;
         height: 100%;
@@ -171,6 +168,8 @@
 </style>
 
 <body>
+    <script src="/socket.io/socket.io.js"></script>
+
 
     <div class="ghost">
         <!-- body part -->
@@ -203,19 +202,19 @@
     <div class = "welcome-msg" style="display: block;">
         <h1 class="here"> Welcome to Flashchat!</h1>
     </div>
-    <div class="main-box" style="display: block;">
-        <form class="main-form" action="/index.html" method="post">
-            <input class="txtb" type="text" name="" placeholder="Display Name">
+    <div class="main-box" style="display: block;" id="mainBox">
+        <form class="main-form">
+            <input id = "username" class="txtb" type="text" name="" placeholder="Display Name">
             <div class="buttons">
                 <button id="createRoomBtn">Create Room</button>
-                <button>Join Room</button>
+                <button id="joinRoomBtn">Join Room</button>
             </div>
         </form>
     </div>
 
-    <div class = "create-room-box" style = "display: none;">
+    <div class = "create-room-box" style = "display: none;" id="createRoomBox">
         <p class="code-label">Your Room Code is:</p>
-        <span id="generated-code">ABCD123</span>
+        <span id="generatedCode">ABCD123</span>
         <div class="chat-history-container">
             <p class="chat-history">Retain Chat History</p>
             <label class="switch">
@@ -224,22 +223,24 @@
             </label>
         </div>  
         <label for="max-people">Max number of people:</label>
-        <select id="max-people">
+        <select id="maxPeople">
             <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
             <option value="5">5</option>
-            <option value="10">10</option>
+
         </select>               
         <div class="button-container">
-            <button class="create-room-button">Create Room</button>
-            <button class="back1-button"><span>&lt;</span> Back</button>
+            <button class="create-room-button" id = "startRoomBtn">Create Room</button>
+            <button class="back1-button" id="backButton1"><span>&lt;</span> Back</button>
         </div>
     </div>
 
-    <div class = "join-room-box" style = "display: none;">
-        <input class="enter-code" type="text" name="" placeholder="Enter Room Code">
+    <div class = "join-room-box" style = "display: none;" id = "joinRoomBox">
+        <input id="enteredCode" class="enter-code" type="text" name="" placeholder="Enter Room Code">
         <div class="button-container">
-            <button class="join-room-button">Join Room</button>
-            <button class="back2-button"><span>&lt;</span> Back</button>
+            <button class="join-room-button" id="enterRoomBtn">Join Room</button>
+            <button class="back2-button" id = "backButton2"><span>&lt;</span> Back</button>
         </div>
     </div>
     <style>
@@ -256,48 +257,35 @@
 </div>
 
 <!-- Chat Page -->
-<div class="container" style="display: none;">
+<div class="container" style="display: none;" id = "chatBox">
 <!-- User List-->
 <div class="user-list">
     <div class="header">
-        <div class="my-avatar">
-            <img src="avatar2.png" alt=""/>
+        <div class="selfAvatar">
+            <img id="selfAvatar" src="avatar3.png" alt=""/>
         </div>
         <div class="info">
-            <h3 class="username">Deetoo</h3>
+            <h3 class="selfUsername" id="selfUsername"></h3>
         </div>
     </div>
     <div class="title"><h3>User List</h3></div>
     <ul>
-        <li class="user">
-            <div class="user1-avatar">
-                <img src="avatar.png" alt=""/>
-            </div>            
-            <div class="name1">Wrecker</div>
-        </li>
-        <li class="user">
-            <div class="user2-avatar">
-                <img src="avatar02.png" alt=""/>
-            </div>            
-            <div class="name2">Pryzos</div>
-        </li>
     </ul>
 </div>
 <!-- Chat Box-->
 <div class="box">
     <!--Chatbox head-->
-    <div class="box-hd"><h3> Chat Room(99)</h3></div>
+    <div id = "currentNumber" class="box-hd"><h3><span id="userCount">Chat Room (1)</span></h3></div>
     <!--Chat Box body-->
     <div class="box-bd">
         <div class="system">
             <p class="message_system">
-                <span class="content">Deetoo invited you and Wrecker into the group chat</span>
+                <span class="content"></span>
             </p>
         </div>
-        <div class="message-box">
+        <!-- <div class="message-box">
             <div class="my-message">
-                <div class="avatar">
-                    <img src="avatar2.png" alt=""/>
+                <img class="avatar" src="avatar2.png" alt=""/>
                 </div>  
                 <div class="content">
                     <div class="bubble">
@@ -308,9 +296,7 @@
         </div>
         <div class="message-box">
             <div class="other-message">
-                <div class="avatar">
-                    <img src="avatar.png" alt=""/>
-                </div>                  
+                <img class="avatar" src="avatar.png" alt=""/>                  
                 <div class="content">
                     <div class="nickname">pryzos</div>
                     <div class="bubble">
@@ -318,11 +304,16 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <!--Enter Message Area-->
     <div class="content">
-        <textarea class="text" id="content" contenteditable></textarea>
+        <textarea class="text" id="content" contenteditable placeholder="Press ctrl + enter to send"></textarea>
+    </div>
+    <!-- Send Button-->
+    <div class="action">
+        <!-- <span class="desc">Press ctrl + enter to send </span> -->
+        <a class = "btn-send" id="btn-send" href="javascript:;">send</a>
     </div>
 </div>
 
@@ -332,34 +323,3 @@
 <script src="js/index.js"></script>
 </body>
 </html>
-
-
-
-    <!-- <link rel = "stylesheet" href="css/index.css" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" /> -->
-<!-- <body>
-    <div class ="login_box" style="display: block;">
-        <h3> User Login</h3>
-        <p> Username</p>
-        <input type="text" placeholder = "Please enter your username" id="username" />
-        <p>Choose icon</p>
-        <ul class="avatar" id="login_avatar">
-        </ul>
-        <button class="weui-btn" id="loginBtn">Login</button>
-    </div>
-    <div class ="container" style="display: none;">
-        User List
-        <div class = "user-list">
-            <div class = "header">
-                <div class = "avatar">
-                    <img class ="img src=images/avatar2.jpg" alt="" />
-                </div>
-            </div>
-        </div>
-    </div>"
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="js/jquery-1.12.4.js"></script>
-    <script src="js/index.js"></script>
-</body>
-</html> -->

@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Use min-height for full-page layout */
+    min-height: 100vh;
 }
 
 .background-box {
@@ -33,7 +33,7 @@ body {
     background-image: linear-gradient(50deg, #5F4B98, #545B9A, #6286AA, #679FB3);
     box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.1);
     display: flex;
-    z-index: 0; /* Adjusted z-index to be behind the login box */
+    z-index: 0; 
     opacity: 0.7;
 }
 
@@ -65,8 +65,8 @@ body {
     padding: 10px, 20px;
     color: white;
     outline: none;
-    margin-top: 20px; /* Add margin at the top to create space */
-    margin-bottom: 20px; /* Add margin at the bottom to create space */
+    margin-top: 20px; 
+    margin-bottom: 20px; 
     border-radius: 6px;
     text-align: center;
     font-size: 15px;
@@ -98,15 +98,15 @@ button {
     letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
-    margin-bottom: 20px; /* Add margin at the bottom to create space */
+    margin-bottom: 20px; 
     opacity: 1;
 }
 
 
 
 img {
-    width: 200px; /* Adjust the width to your desired fixed size */
-    height: 100px; /* Adjust the height to your desired fixed size */
+    width: 200px; 
+    height: 100px; 
 }
 
 /* Create Room Page: */
@@ -122,7 +122,7 @@ img {
     background-image: linear-gradient(50deg, #5F4B98, #545B9A, #6286AA, #679FB3);
     box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.1);
     display: flex;
-    z-index: 1; /* Adjusted z-index to be behind the login box */
+    z-index: 1; 
     opacity: 0.7;
 }
 
@@ -138,7 +138,7 @@ img {
     letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
-    margin-bottom: 20px; /* Add margin at the bottom to create space */
+    margin-bottom: 20px; 
     opacity: 1;
     transform: translate(300px, 50px);
   }
@@ -148,63 +148,58 @@ img {
     border: none;
     color: #ffffff;
     cursor: pointer;
-    font-size: 18px; /* Adjust the font size as needed */
-    font-weight: normal; /* Remove any font weight that makes it bold */
-    padding: 0; /* Remove padding to eliminate extra spacing */
-    margin: 0; /* Remove margin to eliminate extra spacing */
+    font-size: 18px; 
+    font-weight: normal; 
+    padding: 0; 
+    margin: 0; 
     transform: translate(-230px, 110px);
     position: absolute;
 }
 
 .back1-button span {
-    margin-right: 3px; /* Adjust spacing between < and Back */
+    margin-right: 3px; 
     vertical-align: 2px;
 }
 
-/* Style the label */
 label {
     font-size: 19px;
     color: #ffffff;
     margin-right: 10px;
     font-family: "Courier New", Courier, monospace; 
-    font-weight: bold; /* Adjust the font weight as needed */
-    margin-left: 250px; /* Move it right by adjusting the left margin */
+    font-weight: bold; 
+    margin-left: 250px; 
 }
 
-/* Style the select element */
-#max-people {
-    width: 100px; /* Set the width of the select box */
+#maxPeople {
+    width: 100px; 
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
     color: #555;
     background-color: #afc2c8;
-    margin-top: 100px; /* Move it down by adjusting the top margin */
-    margin-left: 10px; /* Move it right by adjusting the left margin */
+    margin-top: 100px; 
+    margin-left: 10px; 
 }
 
-/* Style the select options */
-#max-people option {
+#maxPeople option {
     font-size: 18px;
-    background-color: #fff; /* Background color of options */
-    color: #555; /* Text color of options */
+    background-color: #fff; 
+    color: #555; 
 }
 
-/* Style the select when it's focused */
-#max-people:focus {
-    border-color: #ffffff; /* Change border color when focused */
+#maxPeople:focus {
+    border-color: #ffffff; 
     outline: none;
 }
 
- /* Style for code label and generated code */
-.code-label, #generated-code {
+.code-label, #generatedCode {
     display: inline-block;
-    vertical-align: middle; /* Align vertically in the middle */
+    vertical-align: middle; 
     font-family: "Courier New", Courier, monospace; 
-    font-size: 16px; /* Adjust the font size as needed */
-    font-weight: bold; /* Adjust the font weight as needed */
-    color: #ffffff; /* Adjust the font color as needed */
+    font-size: 16px; 
+    font-weight: bold; 
+    color: #ffffff; 
     font-size: 30px;
     transform: translate(170px, 60px);
   }
@@ -212,7 +207,7 @@ label {
 .chat-history-container {
     display: flex;
     align-items: center;
-    margin: 10px; /* Adjust margin as needed */
+    margin: 10px; 
 }
 
 .chat-history {
@@ -221,7 +216,7 @@ label {
     font-weight: bold;
     color: #ffffff;
     transform: translate(250px, 82px);
-    /* Add other styles for chat-history */
+   
 }
 
 .switch {
@@ -229,7 +224,7 @@ label {
     display: inline-block;
     width: 80px;
     height: 30px;
-    margin-left: 10px; /* Add spacing between chat-history and switch */
+    margin-left: 10px; 
     transform: translate(260px, 80px);
 }
 
@@ -286,7 +281,7 @@ label {
     background-image: linear-gradient(50deg, #5F4B98, #545B9A, #6286AA, #679FB3);
     box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.1);
     display: flex;
-    z-index: 1; /* Adjusted z-index to be behind the login box */
+    z-index: 1; 
     opacity: 0.7;
 }
   
@@ -300,8 +295,8 @@ label {
     padding: 10px, 20px;
     color: white;
     outline: none;
-    margin-top: 20px; /* Add margin at the top to create space */
-    margin-bottom: 20px; /* Add margin at the bottom to create space */
+    margin-top: 20px; 
+    margin-bottom: 20px; 
     border-radius: 6px;
     text-align: center;
     opacity: 0.9;
@@ -321,7 +316,7 @@ label {
     letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
-    margin-bottom: 20px; /* Add margin at the bottom to create space */
+    margin-bottom: 20px; 
     opacity: 1;
     transform: translate(300px, 130px);
   }
@@ -331,21 +326,21 @@ label {
     border: none;
     color: #ffffff;
     cursor: pointer;
-    font-size: 18px; /* Adjust the font size as needed */
-    font-weight: normal; /* Remove any font weight that makes it bold */
-    padding: 0; /* Remove padding to eliminate extra spacing */
-    margin: 0; /* Remove margin to eliminate extra spacing */
+    font-size: 18px; 
+    font-weight: normal; 
+    padding: 0; 
+    margin: 0; 
     transform: translate(-230px, 220px);
     position: absolute;
 }
 
 .back2-button span {
-    margin-right: 3px; /* Adjust spacing between < and Back */
+    margin-right: 3px; 
     vertical-align: 2px;
 }
 
 /* chat box /*
-/* Style the user list container */
+/* Style the chat page container */
 
 .container {
     z-index: 2;
@@ -361,98 +356,85 @@ label {
     box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.1);
     display: flex;
     opacity: 0.7;
-    box-sizing: border-box; /* Include borders and padding in the height */
+    box-sizing: border-box; 
 }
 
 .user-list {
     border: 4px solid white;
-    border-radius: 25px 0 0 25px; /* Specific values for each corner (top-left, top-right, bottom-right, bottom-left) */
+    border-radius: 25px 0 0 25px; 
     padding: 10px;
     margin-bottom: 10px;
-    height: 100%; /* Set the height to 100% */
+    height: 100%; 
     width: 22%;
     z-index: 2;
-    box-sizing: border-box; /* Include borders and padding in the height */
+    box-sizing: border-box; 
     opacity: 1;
 }
 
 .user-list ul {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 .user-list .header {
-    display: flex;
+    position: relative;
     align-items: center;
-    color: white;
+    color: rgb(255, 255, 255);
     transform: translate(100px, 25px);
 }
 
-.my-avatar img {
-    width: 50px;
-    height: 50px;
-    border-radius: 20%;
-    transform: translate(-90px, -480px);
+.user-list li.user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
-.user1-avatar img {
-    width: 50px;
-    height: 50px;
-    border-radius: 20%;
-    transform: translate(10px, -300px);
-}
-
-/* Styles for the second avatar */
-.user2-avatar img {
-    width: 50px;
-    height: 50px;
-    border-radius: 20%;
-    transform: translate(10px, -390px);
-    /* Add any other styles you want for the second avatar here */
-}
-
-.avatar img {
-    width: 50px;
-    height: 50px;
-    border-radius: 20%;
-    transform: translate(10px, -390px);
-    /* Add any other styles you want for the second avatar here */
-}
-
-.user-list .name1 {
-    display: relative;
+.user-list .username {
+    font-weight: bold;
     color: white;
-    transform: translate(90px, 100px);
+    transform: translate(63px, 105px);
 }
-.user-list .name2 {
-    display:relative;
+
+.user-list .selfUsername {
+    font-weight: bold;
     color: white;
-    transform: translate(90px, 160px);
 }
 
 .user-list .title {
-    display: flex;
+    position: fixed;
     color: white;
     text-align: center;
     text-decoration: underline;
     transform: translate(50px, 70px);
 }
 
-.user-list .user {
-    display: flex;
-    align-items: center;
+.user-list .avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    transform: translate(10px, -350px);
+}
+
+.user-list .selfAvatar img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    transform: translate(-90px, -470px);
 }
 
 .box {
-    border-width: 4px 4px 4px 0; /* top right bottom left */
+    border-width: 4px 4px 4px 0; 
     border-style: solid;
     border-color: #ffffff;
-    border-radius: 0px 25px 0px 0px;
+    border-radius: 0px 25px 25px 0px;
     padding: 10px;
     z-index: 2;
-    width: 710px; /* Make it 100% width of the container */
-    height: 420px; /* Make it 100% height of the container */
+    width: 710px; 
+    height: 543px; 
+    position: fixed;
     transform: translate(207px, -581px);
 }
 
@@ -464,26 +446,84 @@ label {
     border-radius: 5px 5px 0 0;
 }
 
-/* Styles for the text area */
+.box-bd .system{
+    margin: 1px;
+    padding: 1px;
+    justify-content: center; 
+    align-items: center;
+}
+
+.box-bd .message_system{
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    transform: translate(-330px, 20px);
+}
+
 .content {
-    /* display: flex; */
-    margin-bottom: 10px; /* Add margin for spacing */
+    margin-bottom: 10px;
     width: 710px;
+    position: fixed;
     transform: translate(-10px, -11px);
-    
-    
 }
 
 .text {
-    width: 100%; /* Make the textarea fill its container width */
+    position: fixed;
+    width: 100%; 
     height: 98px;
     padding: 10px;
     border-radius: 0px 0px 25px 0px;
     resize:none;
-    transform: translate(0px, 306px);
-    background-color: rgba(255, 255, 255, 0.1); /* Transparent background color */
-    border-width: 4px 4px 4px 0; /* top right bottom left */
+    transform: translate(0px, 394px);
+    background-color: rgba(255, 255, 255, 0.1); 
+    border-width: 4px 4px 4px 0; 
     border-style: solid;
     border-color: #ffffff;
     border-radius: 0 0 5 0;
 }
+
+.btn-send {
+    position: fixed;
+    width: 55px;
+    background: #aaabcb;
+    color: #ffffff;
+    border: 0;
+    outline: white;
+    padding: 10px;
+    border-radius: 6px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 1;
+    transform: translate(620px, 440px);
+}
+
+
+/* Style for avatar */
+.avatar {
+    width: 40px; /* Set the desired width */
+    height: 40px; /* Set the desired height */
+    border-radius: 50%; /* Create a circular shape */
+    /* transform: translate(700px, -440px); */
+}
+
+/* .box-bd .message-box .my-message .content .bubble {
+    background-color: #4de0f3; 
+    color: #333; 
+    padding: 10px 15px;
+    border-radius: 15px; 
+    max-width: 40%; 
+    word-wrap: break-word; 
+    margin-left: 320px; 
+    margin-top: 20px;
+}
+
+.message-box .other-message .content .bubble {
+    background-color: #e1e1e1; 
+    color: #333; 
+    padding: 10px 15px; 
+    border-radius: 15px;
+    max-width: 70%; 
+    word-wrap: break-word; 
+    margin-right: 10px; 
+} */
