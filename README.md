@@ -16,7 +16,7 @@ This app is implemented with Javascrip and Express.js, Node.js, Socket.IO framew
 #### Other users can join the same room by entering their display name and unique room code
 ![Join room](https://github.com/RoisinDai/FlashChat/assets/125154836/5fe8507b-20c8-465f-a8a7-563f53c1f0a7)
 
-#### New users will append in the user list and the number of people in the chatroom is updated. These changes are emitted to all users in the room.
+#### New users will append in the user list and the total number of people in the chatroom is updated. These changes are broadcasted to all users in the room.
 ![Joined room](https://github.com/RoisinDai/FlashChat/assets/125154836/6ad47c90-35ee-4be5-a598-2cd5f8478692)
 
 #### Messages sent to others will appear on the right side of the chatbox, while received messages are on the left.
