@@ -1,5 +1,3 @@
-![Create Room](https://github.com/RoisinDai/FlashChat/assets/125154836/55663a56-542c-4483-84fd-022aed1cdc8e)# FlashChat
-
 ## Overview
 FlashChat is a real-time chat application that enables concurrent multi-users connections using Socket.IO.
 ## Technologies Used
