@@ -7,7 +7,7 @@ This app is implemented with Javascrip and Express.js, Node.js, Socket.IO framew
 #### User begin by entering their display name and hitting the create room button
 <img width="1710" alt="Screenshot 2023-09-26 at 12 32 05 AM" src="https://github.com/RoisinDai/FlashChat/assets/125154836/8f8c2494-8b02-4f8c-bc33-b9c9f4a7482d">
 
-#### Room options and a unique andomly generated room code will appear
+#### Room options and a unique randomly generated room code will appear
 ![Create Room](https://github.com/RoisinDai/FlashChat/assets/125154836/8cdad808-7c53-4bcf-9a1a-bb45339b3eab)
 
 #### Upon joining the room, user will see their own username on the top left of the chat box and also as part of the user list
