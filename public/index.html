@@ -216,11 +216,11 @@
         <p class="code-label">Your Room Code is:</p>
         <span id="generatedCode">ABCD123</span>
         <div class="chat-history-container">
-            <p class="chat-history">Retain Chat History</p>
-            <label class="switch">
+            <!-- <p class="chat-history">Retain Chat History</p> -->
+            <!-- <label class="switch">
                 <input type="checkbox">
                 <span class="slider"></span>
-            </label>
+            </label> -->
         </div>  
         <label for="max-people">Max number of people:</label>
         <select id="maxPeople">
@@ -283,32 +283,10 @@
                 <span class="content"></span>
             </p>
         </div>
-        <!-- <div class="message-box">
-            <div class="my-message">
-                <img class="avatar" src="avatar2.png" alt=""/>
-                </div>  
-                <div class="content">
-                    <div class="bubble">
-                        <div class="bubble_cont">whats up</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="message-box">
-            <div class="other-message">
-                <img class="avatar" src="avatar.png" alt=""/>                  
-                <div class="content">
-                    <div class="nickname">pryzos</div>
-                    <div class="bubble">
-                        <div class="bubble_cont">not much</div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
     <!--Enter Message Area-->
-    <div class="content">
-        <textarea class="text" id="content" contenteditable placeholder="Press ctrl + enter to send"></textarea>
+    <div class="content" id = "content">
+        <textarea class="text" id="text" contenteditable placeholder="Press ctrl + enter to send"></textarea>
     </div>
     <!-- Send Button-->
     <div class="action">

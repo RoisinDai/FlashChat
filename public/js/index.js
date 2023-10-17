@@ -153,11 +153,21 @@ socket.on('delUser', data=> {
 
 // chat features
 
-$('.btn-send').on('click', () =>{
+$('.btn-send').on('click', () => {
+    sendMessage();
+});
+
+$('#text').on('keydown', (event) => {
+    if (event.ctrlKey && event.key === 'Enter') {
+        sendMessage();
+    }
+});
+
+function sendMessage() {
     // obtain chat content
-    var content = $('#content').val().trim();
-    $('#content').val('');
-    if(!content) return alert ('Please enter content');
+    var content = $('#text').val().trim();
+    $('#text').val('');
+    if (!content) return alert('Please enter content');
 
     // send data to server
     socket.emit('sendMessage', {
@@ -165,39 +175,55 @@ $('.btn-send').on('click', () =>{
         selfUsername: username.value,
         selfAvatar: selfAvatar.src
     });
-});
+}
+
+// $('.btn-send').on('click', () =>{
+//     // obtain chat content
+//     var content = $('#text').val().trim();
+//     $('#text').val('');
+//     if(!content) return alert ('Please enter content');
+
+//     // send data to server
+//     socket.emit('sendMessage', {
+//         msg: content,
+//         selfUsername: username.value,
+//         selfAvatar: selfAvatar.src
+//     });
+// });
 
 
 socket.on('receiveMessage', data => {
     if(data.selfUsername === username.value) {
         // my messages
         $('.box-bd').append(`
-        <div class="message-box">
-        <div class="my-message">
-            <img class="avatar" src="${data.selfAvatar}" alt=""/>
-            <div class="content">
-                <div class="bubble">
-                    <div class="bubble_cont">${data.msg}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-        `)
-    } else {
-        // others' messages
-        $('.box-bd').append(`
-        <div class="message-box">
-            <div class="other-message">
-                <img class="avatar" src="${data.selfAvatar}" alt=""/>
-                    <div class="content">
-                        <div class="nickname">${data.selfUsername}</div>
-                        <div class="bubble">
-                            <div class="bubble_cont">${data.msg}</div>
+            <div class="message-box">
+                <div class="my-message">
+                    <img class="my_message_avatar" src="${data.selfAvatar}" alt= ""/>
+                    <div class="my_nickname">${data.selfUsername}</div>
+                    <div class="my_content">
+                        <div class="my_bubble" >
+                            <div class="my_bubble_content" >${data.msg}</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        `);
+
+    } else {
+        // others' messages
+        $('.box-bd').append(`
+            <div class="message-box">
+                <div class="other-message">
+                    <img class="other_message_avatar" src="${data.selfAvatar}" alt= ""/>
+                    <div class="other_content">
+                        <div class="other_nickname">${data.selfUsername}</div>
+                        <div class="other_bubble">
+                            <div class="bubble_cont">${data.msg}</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
         `)
 
     }
