@@ -47,17 +47,22 @@ All users are notified when an user leaves. The userlist and chatroom header wil
 ## Feature ideas for the future
 
 - **Persistent Storage**
+  
   Implement a database to store chat messages persistently. This way, when users leave and re-enter the room, they can retrieve past conversations.
 
 - **User Preferences**
+  
   Provide an option for users to choose whether they want to retain or remove past conversations when leaving and re-entering the room.
 
 - **Emoji Support**
+  
   Integrate an emoji picker to allow users to easily insert emojis into their messages
 
 - **Message Editing**
+  
   Allow users to edit ot delete their messages after sending them.
 
 - **Typing Indicator**
+  
   Show a typing indicator to inform users when someone is typing a message in real-time.
 
