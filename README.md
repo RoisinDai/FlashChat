@@ -4,7 +4,7 @@ FlashChat is a real-time chat application that enables concurrent multi-users co
 This app is implemented with Javascrip and Express.js, Node.js, Socket.IO frameworks.
 
 ## Demo
-#### User begin by entering their display name and hitting the create room button
+#### User begins by entering their display name and hitting the create room button
 <img width="1710" alt="Screenshot 2023-09-26 at 12 32 05 AM" src="https://github.com/RoisinDai/FlashChat/assets/125154836/8f8c2494-8b02-4f8c-bc33-b9c9f4a7482d">
 
 #### Room options and a unique randomly generated room code will appear
