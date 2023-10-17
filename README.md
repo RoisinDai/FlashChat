@@ -1,25 +1,63 @@
-# FlashChat
+![Create Room](https://github.com/RoisinDai/FlashChat/assets/125154836/55663a56-542c-4483-84fd-022aed1cdc8e)# FlashChat
 
 ## Overview
 FlashChat is a real-time chat application that enables concurrent multi-users connections using Socket.IO.
+## Technologies Used
+This app is implemented with Javascrip and Express.js, Node.js, Socket.IO frameworks.
+
 ## Demo
-#### A user starts off by entering their display name and hit the create room button
+#### User begin by entering their display name and hitting the create room button
 <img width="1710" alt="Screenshot 2023-09-26 at 12 32 05 AM" src="https://github.com/RoisinDai/FlashChat/assets/125154836/8f8c2494-8b02-4f8c-bc33-b9c9f4a7482d">
 
-#### Room options and a randomly generated unique room code will appear
-<img width="1710" alt="Screenshot 2023-09-26 at 12 32 12 AM" src="https://github.com/RoisinDai/FlashChat/assets/125154836/66644944-ccb3-4c61-a1d3-206f60c7320f"> 
+#### Room options and a unique andomly generated room code will appear
+![Create Room](https://github.com/RoisinDai/FlashChat/assets/125154836/8cdad808-7c53-4bcf-9a1a-bb45339b3eab)
 
-#### The user will see their own user name on the very top left of the chat box and also part of the user list
-<img width="1710" alt="Screenshot 2023-09-26 at 12 32 21 AM" src="https://github.com/RoisinDai/FlashChat/assets/125154836/86c5c20a-0599-474e-bacd-e2263c3acf50"> 
+#### Upon joining the room, user will see their own username on the top left of the chat box and also as part of the user list
+![Chat Room](https://github.com/RoisinDai/FlashChat/assets/125154836/ddc8575e-d3a1-422e-a2fa-7f9910d0e13b)
 
-#### Other users can join the same room by entering the proper room code
-<img width="1710" alt="Screenshot 2023-09-26 at 12 32 31 AM" src="https://github.com/RoisinDai/FlashChat/assets/125154836/52b6d249-8b9a-484b-b87f-41c6378c8da1"> 
+#### Other users can join the same room by entering their display name and unique room code
+![Join room](https://github.com/RoisinDai/FlashChat/assets/125154836/5fe8507b-20c8-465f-a8a7-563f53c1f0a7)
 
-#### They will also appear in the user list and a welcome message will appear. These changes are emitted to all users in the room.
-<img width="1710" alt="Screenshot 2023-09-26 at 12 32 38 AM" src="https://github.com/RoisinDai/FlashChat/assets/125154836/3e48500b-1807-46e1-80b5-0145e6a16605">
+#### New users will append in the user list and the number of people in the chatroom is updated. These changes are emitted to all users in the room.
+![Joined room](https://github.com/RoisinDai/FlashChat/assets/125154836/6ad47c90-35ee-4be5-a598-2cd5f8478692)
 
+#### Messages sent to others will appear on the right side of the chatbox, while received messages are on the left.
+![Bob Speaks](https://github.com/RoisinDai/FlashChat/assets/125154836/284a9c72-18ea-4e9f-a02f-32579cb56f8b)
 
-## Technologies Used
+#### All users are notified when a new user joins. The new user will not be able to view previous chat conversations.
+![John responds](https://github.com/RoisinDai/FlashChat/assets/125154836/42e2f024-e76b-4ffa-ba05-7b3130c7408b)
 
-This app is implemented with Javascrip and Express.js, Node.js, Socket.IO frameworks.
+#### All users are notified when an user leaves. The userlist and chatroom header will update accordingly.
+![Gabe joins](https://github.com/RoisinDai/FlashChat/assets/125154836/39aebfe9-f3fe-4592-b378-291a89f0d6d5)
+
+## Features
+
+- **Max People**
+  
+  The room creater can select the max number of people allowed in the room using the drop down menu in the "Create Room" interface. 
+
+- **Error Handling**
+
+  Error messages are displayed if users do not enter a display name, enter an invalid room code, the room to join has reached max capacity, or do not enter content in the textbox prior to sending messages.
+
+- **Send Messages**
+
+  Messages are sent using either the send button or by pressing ctrl + enter on the keyboard.
+
+## Feature ideas for the future
+
+- **Persistent Storage**
+  Implement a database to store chat messages persistently. This way, when users leave and re-enter the room, they can retrieve past conversations.
+
+- **User Preferences**
+  Provide an option for users to choose whether they want to retain or remove past conversations when leaving and re-entering the room.
+
+- **Emoji Support**
+  Integrate an emoji picker to allow users to easily insert emojis into their messages
+
+- **Message Editing**
+  Allow users to edit ot delete their messages after sending them.
+
+- **Typing Indicator**
+  Show a typing indicator to inform users when someone is typing a message in real-time.
 
