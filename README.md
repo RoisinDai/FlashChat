@@ -19,14 +19,16 @@ This app is implemented with Javascrip and Express.js, Node.js, Socket.IO framew
 #### New users will append in the user list and the total number of people in the chatroom is updated. These changes are broadcasted to all users in the room
 ![Joined room](https://github.com/RoisinDai/FlashChat/assets/125154836/6ad47c90-35ee-4be5-a598-2cd5f8478692)
 
-#### Messages sent to others will appear on the right side of the chatbox, while received messages are on the left
+#### Messages sent to others will appear on the right side of the chatbox in blue 
 ![Bob Speaks](https://github.com/RoisinDai/FlashChat/assets/125154836/284a9c72-18ea-4e9f-a02f-32579cb56f8b)
 
-#### All users are notified when a new user joins. The new user will not be able to view previous chat conversations
+#### Received messages are displayed on the left of the chatbox in grey
 ![John responds](https://github.com/RoisinDai/FlashChat/assets/125154836/42e2f024-e76b-4ffa-ba05-7b3130c7408b)
 
-#### All users are notified when an user leaves. The userlist and chatroom header will update accordingly
+#### All users are notified when a new user joins. The new user will not be able to view previous chat conversations
 ![Gabe joins](https://github.com/RoisinDai/FlashChat/assets/125154836/39aebfe9-f3fe-4592-b378-291a89f0d6d5)
+
+All users are notified when an user leaves. The userlist and chatroom header will update accordingly
 
 ## Features
 
